@@ -11,5 +11,21 @@
     "url": "git@bitbucket.org:richardneililagan/manila-js-009.git"
   },
   "author": "Richard Neil Ilagan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-rename": "~1.2.0",
+    "jshint-stylish": "~0.2.0",
+    "gulp-if": "~1.2.1",
+    "gulp-load-plugins": "~0.5.3",
+    "gulp-livereload": "~2.1.0",
+    "gulp-size": "~0.4.0",
+    "gulp-uglify": "~0.3.1",
+    "gulp-ruby-sass": "~0.5.0",
+    "gulp": "~3.8.5",
+    "gulp-cssmin": "~0.1.6",
+    "gulp-rimraf": "~0.1.0",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-jshint": "~1.6.4",
+    "gulp-browserify": "~0.5.0"
+  }
 }
