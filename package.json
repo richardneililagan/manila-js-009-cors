@@ -1,0 +1,15 @@
+{
+  "name": "manila-js-009",
+  "version": "0.0.0",
+  "description": "This project is the slide deck and proof of concept for the\r Cross-Origin Resource Sharing (CORS) talk by\r [__Richard Neil Ilagan__](http://github.com/richardneililagan)\r for [Manila JS](http://manilajs.com) Fridays 009.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:richardneililagan/manila-js-009.git"
+  },
+  "author": "Richard Neil Ilagan",
+  "license": "ISC"
+}
