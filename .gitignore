@@ -35,3 +35,4 @@ dist
 
 # temp dirs
 .tmp
+.sass-cache
