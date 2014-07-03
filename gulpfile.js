@@ -100,6 +100,11 @@ gulp.task('minify:css', ['sass'], function () {
       path.basename += '.min';
     }))
     .pipe(gulp.dest('./.tmp'))
+
+    // 'cause I just wanna see this information
+    .pipe($.size({
+      showFiles : true
+    }))
     ;
 });
 

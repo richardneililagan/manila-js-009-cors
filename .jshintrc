@@ -10,10 +10,15 @@
   "indent": 2,
   "newcap": true,
   "noarg": true,
-  "quotmark": "single",
   "undef": true,
   "unused": "vars",
   "strict": true,
   "trailing": true,
-  "smarttabs": true
+  "smarttabs": true,
+
+  "globals" : {
+    "$" : true,
+    "jQuery" : true,
+    "impress" : true
+  }
 }
