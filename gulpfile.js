@@ -165,3 +165,20 @@ gulp.task('watch', function () {
   gulp.watch('./client/styles/**/*.*', ['copy:css']);
 
 });
+
+
+// :: Server
+gulp.task('serve', function () {
+  $.nodemon({
+    script : 'app.js',
+    ext : 'js',
+    ignore : [
+      './client',
+      './dist',
+      './.tmp',
+      './.sass-cache'
+    ]
+  })
+  .on('change', ['jshint:server'])
+  ;
+});
