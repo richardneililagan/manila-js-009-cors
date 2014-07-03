@@ -17,7 +17,60 @@
     <main id="impress">
 
       <div class="step">
-        <h1>Do the <em>pew pew pew</em> thing</h1>
+        <h1><span>Do the <em>pew pew pew</em> thing</span></h1>
+        <h2>Performing cross-domain HTTP requests with CORS</h2>
+      </div>
+
+      <div class="step" data-x="800">
+        <ul>
+          <li>Richard Neil Ilagan</li>
+          <li>me@richardneililagan.com</li>
+          <li>github : richardneililagan</li>
+          <li>twitter : techlifemusic</li>
+          <li>steam : ohyeahcarding</li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="800" data-z="2000">
+        <h2>The problem with cross-domain requests</h2>
+      </div>
+
+      <div class="step" data-x="1200" data-rotate="90">
+        <h3>Server-to-server communication <br>is (generally) OK.</h3>
+
+        <ul>
+          <li>Not <em>strictly</em> cross-domain</li>
+          <li>Does not deal with <code>XMLHttpRequest</code></li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="1200" data-y="800" data-rotate="90">
+        <h3><em>Some</em> client-to-server communication is OK</h3>
+        <ul>
+          <li>
+            Cross-domain resources via HTML tags.
+            <code>&lt;img src="http://some.domain"&gt;</code>
+          </li>
+          <li>
+            Generally anything <em>not</em> using <code>XMLHttpRequest</code>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="1200" data-y="800" data-rotate="90" data-z="-2000">
+        <h2>So what now?</h2>
+      </div>
+
+      <div class="step" data-x="1200" data-y="1600" data-rotate="90"data-z="-2000">
+        <h3>Server Proxy</h3>
+      </div>
+
+      <div class="step" data-x="1100" data-y="1600" data-rotate="90"data-z="-2000">
+        <h3>JSONP</h3>
+      </div>
+
+      <div class="step" data-x="1000" data-y="1600" data-rotate="90"data-z="-2000">
+        <h3>Flash middleman</h3>
       </div>
 
     </main>

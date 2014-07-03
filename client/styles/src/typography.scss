@@ -1,0 +1,16 @@
+$font-open-sans : 'Open Sans', Arial, Helvetica, sans-serif;
+$font-oswald : 'Oswald', Arial, Helvetica, sans-serif;
+
+$font-base-size : 24px;
+
+@mixin font-open-sans($size : 1em, $weight : 300) {
+  font-weight : $weight;
+  font-size : $size;
+  font-family : $font-open-sans;
+}
+
+@mixin font-oswald($size : 1em, $weight : 300) {
+  font-weight : $weight;
+  font-size : $size;
+  font-family : $font-oswald;
+}
