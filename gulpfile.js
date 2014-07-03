@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var rimraf = require('rimraf');
+var run = require('run-sequence');
 var $ = require('gulp-load-plugins')();
 
 
@@ -48,7 +49,7 @@ gulp.task('libscripts', function () {
 gulp.task('minify:js', ['browserify', 'libscripts'], function () {
   return gulp.src([
     './.tmp/**/*.js',
-    '!*.min.js'
+    '!./.tmp/**/*.min.js'
     ])
     .pipe($.uglify({
       preserveComments : 'some'
@@ -67,7 +68,9 @@ gulp.task('minify:js', ['browserify', 'libscripts'], function () {
 });
 
 // process javascript workflow
-gulp.task('process-scripts', ['jshint:server', 'minify:js']);
+gulp.task('process-scripts', function (cb) {
+  run(['jshint:server', 'minify:js'], cb);
+});
 
 
 // :: CSS
@@ -89,7 +92,7 @@ gulp.task('sass', function () {
 gulp.task('minify:css', ['sass'], function () {
   return gulp.src([
     './.tmp/**/*.css',
-    '!*.min.css'
+    '!./.tmp/**/*.min.css'
     ])
     .pipe($.cssmin())
     .pipe($.rename(function(path) {
@@ -102,7 +105,9 @@ gulp.task('minify:css', ['sass'], function () {
 
 // provess CSS workflow
 // # kinda redundant though
-gulp.task('process-styles', ['minify:css']);
+gulp.task('process-styles', function (cb) {
+  run(['minify:css'], cb);
+});
 
 
 // :: Cleaning
@@ -117,10 +122,12 @@ gulp.task('clean:css', _clean('./dist/css'));
 gulp.task('clean:js', _clean('./dist/js'));
 gulp.task('clean:images', _clean('./dist/images'));
 gulp.task('clean:views', _clean('./dist/views'));
+gulp.task('clean:dist', _clean('./dist'));
 //
 // or clean them all
-// # gotta make this task and clean:stage run in parallel
-gulp.task('clean', ['clean:stage'], _clean('./dist'));
+gulp.task('clean', function (cb) {
+  run(['clean:dist', 'clean:stage'], cb);
+});
 
 
 // :: Packaging
@@ -133,7 +140,28 @@ var _copy = function (from, base, to) {
   };
 };
 
-gulp.task('copy:images', ['clean:images'], _copy('./client/images/**/*.*'));
-gulp.task('copy:views', ['clean:views'], _copy('./client/views/**/*.*'));
-gulp.task('copy:js', ['clean:js'], _copy('./.tmp/**/*.min.js', './.tmp', './dist/js'));
-gulp.task('copy:css', ['clean:css'], _copy('./.tmp/**/*.min.css', './.tmp', './dist/css'));
+gulp.task('copy:images', _copy('./client/images/**/*.*'));
+gulp.task('copy:views', _copy('./client/views/**/*.*'));
+gulp.task('copy:js', ['process-scripts'], _copy('./.tmp/**/*.min.js', './.tmp', './dist/js'));
+gulp.task('copy:css', ['process-styles'], _copy('./.tmp/**/*.min.css', './.tmp', './dist/css'));
+
+gulp.task('build', function (cb) {
+  run(
+    'clean',
+    ['copy:images', 'copy:views', 'copy:js', 'copy:css'],
+    cb
+    );
+});
+
+
+// :: Watch
+gulp.task('watch', function () {
+
+  $.livereload.listen();
+
+  gulp.watch('./client/views/**/*.*', ['copy:views']);
+  gulp.watch('./client/images/**/*.*', ['copy:images']);
+  gulp.watch('./client/scripts/**/*.*', ['copy:js']);
+  gulp.watch('./client/styles/**/*.*', ['copy:css']);
+
+});
