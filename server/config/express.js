@@ -39,9 +39,8 @@ module.exports = function (app) {
 
   // # catch-all for now
   // TODO optimize this
-  app.use(express.static(path.join(config.root, 'css')));
-  app.use(express.static(path.join(config.root, 'js')));
-  app.use(express.static(path.join(config.root, 'images')));
+  app.use(express.static(path.join(config.root, 'pub')));
+
   app.set('views', config.root + '/views');
 
   app.engine('html', require('ejs').renderFile);

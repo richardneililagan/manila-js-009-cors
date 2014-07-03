@@ -118,9 +118,9 @@ var _clean = function (path) {
 };
 
 gulp.task('clean:stage', _clean('./.tmp'));
-gulp.task('clean:css', _clean('./dist/css'));
-gulp.task('clean:js', _clean('./dist/js'));
-gulp.task('clean:images', _clean('./dist/images'));
+gulp.task('clean:css', _clean('./dist/pub/css'));
+gulp.task('clean:js', _clean('./dist/pub/js'));
+gulp.task('clean:images', _clean('./dist/pub/images'));
 gulp.task('clean:views', _clean('./dist/views'));
 gulp.task('clean:dist', _clean('./dist'));
 //
@@ -140,10 +140,10 @@ var _copy = function (from, base, to) {
   };
 };
 
-gulp.task('copy:images', _copy('./client/images/**/*.*'));
 gulp.task('copy:views', _copy('./client/views/**/*.*'));
-gulp.task('copy:js', ['process-scripts'], _copy('./.tmp/**/*.min.js', './.tmp', './dist/js'));
-gulp.task('copy:css', ['process-styles'], _copy('./.tmp/**/*.min.css', './.tmp', './dist/css'));
+gulp.task('copy:images', _copy('./client/images/**/*.*', null, './dist/pub/images'));
+gulp.task('copy:js', ['process-scripts'], _copy('./.tmp/**/*.min.js', './.tmp', './dist/pub/js'));
+gulp.task('copy:css', ['process-styles'], _copy('./.tmp/**/*.min.css', './.tmp', './dist/pub/css'));
 
 gulp.task('build', function (cb) {
   run(
