@@ -61,16 +61,113 @@
         <h2>So what now?</h2>
       </div>
 
-      <div class="step" data-x="1200" data-y="1600" data-rotate="90"data-z="-2000">
+      <div class="step" data-x="1200" data-y="1600" data-rotate="90" data-z="-2000">
         <h3>Server Proxy</h3>
       </div>
 
-      <div class="step" data-x="1100" data-y="1600" data-rotate="90"data-z="-2000">
+      <div class="step" data-x="1100" data-y="1600" data-rotate="90" data-z="-2000">
         <h3>JSONP</h3>
       </div>
 
-      <div class="step" data-x="1000" data-y="1600" data-rotate="90"data-z="-2000">
+      <div class="step" data-x="1000" data-y="1600" data-rotate="90" data-z="-2000">
         <h3>Flash middleman</h3>
+      </div>
+
+      <div class="step" data-x="500" data-y="800" data-rotate="720" data-z="2000">
+        <dl>
+          <dt>CORS</dt>
+          <dd>
+            <strong>Cross-Origin Resource Sharing</strong>
+            <p>W3C Standard mechanism for accessing cross-site resources previously controlled by the same-domain policy restriction.</p>
+          </dd>
+        </dl>
+      </div>
+
+      <div class="step" data-x="500" data-y="1000" data-rotate="720" data-z="2200">
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS -->
+        <h3>CORS can be used to mitigate</h3>
+        <ul>
+          <li>Cross-domain <code>XMLHttpRequest</code>s</li>
+          <li>Cross-domain webfont access, generally via CSS <code>@font-face</code></li>
+          <li class="deprioritize">WebGL textures</li>
+          <li class="deprioritize">Images drawn to a canvas using <code>drawImage</code></li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="500" data-y="1200" data-rotate="720" data-z="2400">
+        <ul>
+          <li><span>Simple</span></li>
+          <li><span>Preflighted</span></li>
+          <li><span>Credentialed</span></li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="500" data-y="1500" data-rotate="720" data-z="2400">
+        <h3>Simple requests</h3>
+        <ul>
+          <li>HTTP <strong>GET</strong>, <strong>POST</strong>, and <strong>HEAD</strong> requests</li>
+          <li>HTTP <strong>POST</strong> requests must use any of the following <em>Content-Type</em>s:
+            <ul>
+              <li><code>application/x-www-form-urlencoded</code></li>
+              <li><code>multipart/form-data</code></li>
+              <li><code>text/plain</code></li>
+            </ul>
+          </li>
+          <li><strong>No</strong> custom headers</li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="1500" data-y="1500" data-rotate="720" data-z="2400">
+        <h3>Notable request headers</h3>
+        <ul>
+          <li><code>Origin</code></li>
+          <li><code>Referer</code></li>
+        </ul>
+
+        <h3>CORS response headers</h3>
+        <ul>
+          <li><code>Access-Control-Allow-Origin</code></li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="500" data-y="2200" data-rotate="720" data-z="2400">
+        <h3>Preflighted requests</h3>
+        <ul>
+          <li>Most anything that's <strong>not simple</strong></li>
+          <li>The client sends an <strong>HTTP OPTIONS</strong> preflight request <em>before</em> the actual request</li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="1500" data-y="2200" data-rotate="720" data-z="2400">
+        <h3>Notable HTTP OPTIONS request headers</h3>
+        <ul>
+          <li><code>Origin</code></li>
+          <li><code>Access-Control-Request-Method</code></li>
+          <li><code>Access-Control-Request-Headers</code></li>
+        </ul>
+
+        <h3>CORS HTTP OPTIONS response headers</h3>
+        <ul>
+          <li><code>Access-Control-Allow-Origin</code></li>
+          <li><code>Access-Control-Allow-Methods</code></li>
+          <li><code>Access-Control-Allow-Headers</code></li>
+          <li><code>Access-Control-Max-Age</code></li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="500" data-y="2900" data-rotate="720" data-z="2400">
+        <h3>Credentialed requests</h3>
+        <ul>
+          <li><strong>Non-simple</strong> requests that contain cookie data</li>
+          <li><em>NOTE : By default, cross-site requests do not contain cookie information</em></li>
+        </ul>
+      </div>
+
+      <div class="step" data-x="1500" data-y="2900" data-rotate="720" data-z="2400">
+        <h3>Additional CORS HTTP OPTIONS response headers</h3>
+        <ul>
+          <li><code>Access-Control-Allow-Credentials</code></li>
+        </ul>
       </div>
 
     </main>
